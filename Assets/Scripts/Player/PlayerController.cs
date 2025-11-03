@@ -5,39 +5,44 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] Rigidbody rb;
+    Rigidbody rb;
+    BoxCollider boxCollider;
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float dashSpeed = 10f;
     [SerializeField] float turnSpeed = 360f;
     [SerializeField] float jumpForce = 10f;
     [SerializeField] float currentSpeed;
-    [SerializeField] bool isGrounded;
+    
+    
     private Vector3 input;
 
     PlayerInputs playerInputs;
-    PlayerInput playerInput;
-
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundLayer;
-    private void Start()
+    private void Awake()
     {
         playerInputs = GetComponent<PlayerInputs>();
-        playerInput = GetComponent<PlayerInput>();
+        rb = GetComponent<Rigidbody>();
+        boxCollider = GetComponent<BoxCollider>();
+        
         currentSpeed = moveSpeed;
     }
     void Update()
     {
-        IsGrounded();
+        Jump();
+        
         GatherInput();
         Look();
         Dash();
+        
     }
 
 
     void FixedUpdate() 
     {
         Move();
-        Jump();
+        
+
     }
 
     void GatherInput()
@@ -75,22 +80,31 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if ( playerInputs.jump && isGrounded)
+        if ( IsGrounded() && playerInputs.jump)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            rb.linearVelocity = Vector3.up * jumpForce;
+           
         }
 
     }
 
-    private void IsGrounded()
+    bool IsGrounded()
     {
-        if (Physics.Raycast(groundCheck.transform.position, Vector3.down, 0.1f, groundLayer, QueryTriggerInteraction.UseGlobal))
+        float radius = 0.2f;
+        
+        if( Physics.CheckSphere(groundCheck.transform.position, radius, groundLayer))
         {
-            isGrounded = true;
+            return true;
         }
         else
         {
-            isGrounded = false;
+            return false;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(groundCheck.transform.position, 0.2f);
     }
 }
