@@ -29,20 +29,21 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        Jump();
+        
         
         GatherInput();
-        Look();
-        Dash();
         
+        Dash();
+
     }
 
 
-    void FixedUpdate() 
+    void FixedUpdate()
     {
         Move();
-        
+        Look();
 
+        Jump();
     }
 
     void GatherInput()
@@ -63,7 +64,8 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        rb.MovePosition(transform.position + (transform.forward * input.magnitude) * currentSpeed *Time.deltaTime );
+        
+        rb.MovePosition(transform.position + (transform.forward * input.magnitude) * currentSpeed * Time.deltaTime);
     }
 
     void Dash()

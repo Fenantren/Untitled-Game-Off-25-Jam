@@ -5,6 +5,7 @@ public class Ring : MonoBehaviour
     Transform ringTransform;
     [SerializeField] float increaseRate = 5f;
     [SerializeField] float maxSize;
+    [SerializeField] float pushForce = 20f;
     private void Awake()
     {
         ringTransform = GetComponent<Transform>();   
@@ -21,5 +22,12 @@ public class Ring : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+       other.rigidbody.AddForce((other.transform.position - ringTransform.position) * pushForce, ForceMode.Impulse);
+       //Add SFX and VFX
+       
     }
 }

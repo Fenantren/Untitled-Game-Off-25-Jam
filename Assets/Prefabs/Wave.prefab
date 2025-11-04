@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6061172014197303933}
   - component: {fileID: 1921441666290870911}
   m_Layer: 0
-  m_Name: Ring
+  m_Name: Wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,8 +32,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.95, y: 1.428, z: -2}
-  m_LocalScale: {x: 1.5724987, y: 1.5724987, z: 1.5724987}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.61, y: 0.61, z: 0.61}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10867,7 +10867,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2476
+  m_VersionIndex: 2500
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -10887,7 +10887,7 @@ MonoBehaviour:
   m_Shape:
     rid: 5031955730551537946
   m_ShapeRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_UnmodifiedMeshVersion: 2476
+  m_UnmodifiedMeshVersion: 2500
   m_Size: {x: 2, y: 0.2, z: 2}
   m_LocalCenter: {x: 0, y: 0, z: 0}
   references:
@@ -10989,5 +10989,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7044007798a25b48bfcdcedacec1421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  increaseRate: 2
-  maxSize: 10
+  increaseRate: 5
+  maxSize: 40
+  pushForce: 1
