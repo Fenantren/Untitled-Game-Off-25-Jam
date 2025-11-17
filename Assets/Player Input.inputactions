@@ -21,12 +21,12 @@
                     "id": "edead45d-352b-4c76-8123-acb22249acf3",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": false
                 },
                 {
                     "name": "Jump",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "519cb5e2-782c-4514-9210-80c2f508becc",
                     "expectedControlType": "",
                     "processors": "",
