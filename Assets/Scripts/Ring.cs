@@ -13,7 +13,7 @@ public class Ring : MonoBehaviour
 
     private void Update()
     {
-        ringTransform.localScale += new Vector3(2,0.5f,2) * increaseRate * Time.deltaTime;
+        ringTransform.localScale += new Vector3(2,1,2) * increaseRate * Time.deltaTime;
         DestroyRing();
     }
     private void DestroyRing()
@@ -26,7 +26,7 @@ public class Ring : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-       other.rigidbody.AddForce((other.transform.position - ringTransform.position) * pushForce);
+       other.rigidbody.AddForce((other.transform.position - ringTransform.position) * pushForce, ForceMode.Impulse);
        //Add SFX and VFX
        
     }

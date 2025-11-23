@@ -10991,4 +10991,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   increaseRate: 3
   maxSize: 40
-  pushForce: 50
+  pushForce: 5
