@@ -10989,6 +10989,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7044007798a25b48bfcdcedacec1421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  increaseRate: 5
+  increaseRate: 3
   maxSize: 40
-  pushForce: 1
+  pushForce: 50

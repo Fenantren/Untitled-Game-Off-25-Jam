@@ -9,6 +9,7 @@ public class WaveTower : MonoBehaviour
     [SerializeField] float spawnDelay = 3f;
     [SerializeField] Transform waveSpawnPos;
 
+    
     PlayerController player;
 
     private void Awake()
