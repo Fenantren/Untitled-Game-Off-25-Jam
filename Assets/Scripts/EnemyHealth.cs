@@ -16,9 +16,10 @@ public class EnemyHealth : MonoBehaviour
     private void OnParticleCollision(GameObject other)
     {
         TakeDamage(damageTaken);
+        Debug.Log(other.name);
         if( currentHP <= 0)
         {
-            Debug.Log("Tower destroyed");
+            Debug.Log("Enemy destroyed");
             Destroy(gameObject);
 
         }
