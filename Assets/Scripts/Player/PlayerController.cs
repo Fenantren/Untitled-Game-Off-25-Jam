@@ -30,8 +30,8 @@ public class PlayerController : MonoBehaviour
     private bool canDash = true;
 
 
-    [SerializeField] ParticleSystem waveParticles;
-    [SerializeField] Transform waveTransform;
+    [SerializeField] GameObject slamWavePrefab;
+    [SerializeField] Transform slamWaveTransform;
 
     [SerializeField] bool canSlam = false;
     [SerializeField] bool isGrounded;
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
         trailRenderer = GetComponent<TrailRenderer>();
-        currentSpeed = moveSpeed;
+        
     }
     void Update()
     {
@@ -83,8 +83,20 @@ public class PlayerController : MonoBehaviour
 
     void MovePlayer()
     {
+
         
-        rb.MovePosition(transform.position + (transform.forward * input.magnitude) * currentSpeed * Time.deltaTime);
+        if (input != Vector3.zero)
+        {
+            
+            rb.linearVelocity = new Vector3 (input.ToIso().x * moveSpeed, rb.linearVelocity.y, input.ToIso().z * moveSpeed);
+            
+            if (isDashing)
+            {
+                Debug.Log("dashing while moving");
+                rb.linearVelocity += dashDirection * dashVelocity ;
+                return;
+            }
+        }
     }
 
     public void Dash(InputAction.CallbackContext context)
@@ -102,11 +114,7 @@ public class PlayerController : MonoBehaviour
             }
             StartCoroutine(StopDashingRoutine());
         }
-        if (isDashing)
-        {
-            rb.linearVelocity = dashDirection * dashVelocity;
-            return;
-        }
+        
 
     }
 
@@ -186,11 +194,10 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitUntil(() => isGrounded == true);
 
-        waveParticles.Play();
+        Instantiate(slamWavePrefab, slamWaveTransform.position, Quaternion.identity);
         Debug.Log("wave!");
 
-        yield return new WaitForSeconds(1f);
-        waveParticles.Stop();
+        
         
         
     }
