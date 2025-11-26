@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform slamWaveTransform;
 
     [SerializeField] bool canSlam = false;
-    [SerializeField] bool isGrounded;
+    public bool isGrounded;
 
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundLayer;

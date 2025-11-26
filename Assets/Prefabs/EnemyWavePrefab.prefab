@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 2422719611613735650}
   - component: {fileID: 4656652940278155973}
   - component: {fileID: 260224819836991347}
-  - component: {fileID: 4049135960974489582}
   - component: {fileID: 6348398778470281149}
   - component: {fileID: 2282696283833772314}
-  m_Layer: 0
-  m_Name: WaveProt
+  - component: {fileID: -2377149627067362184}
+  m_Layer: 10
+  m_Name: EnemyWavePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3154,21 +3154,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314562682309793779}
   m_Mesh: {fileID: 0}
---- !u!114 &4049135960974489582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1314562682309793779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c780d1642699fb349af5637fa5e46c96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  increaseRate: 5
-  maxSize: 8
-  damage: 5
 --- !u!135 &6348398778470281149
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3179,10 +3164,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 1857
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -3206,10 +3191,10 @@ Rigidbody:
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 1857
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -3217,3 +3202,18 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &-2377149627067362184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314562682309793779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 361dccad0cd632747a3fd61a2fb3f152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  increaseRate: 2
+  maxSize: 5
+  damage: 2

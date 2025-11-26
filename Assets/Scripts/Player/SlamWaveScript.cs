@@ -6,6 +6,8 @@ public class SlamWaveScript : MonoBehaviour
     [SerializeField] float maxSize;
     [SerializeField] int damage = 2;
 
+    
+
     private void Update()
     {
         WaveExpansion();
