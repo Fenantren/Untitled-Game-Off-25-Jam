@@ -6,6 +6,7 @@ public class EnemyWaveScript : MonoBehaviour
     [SerializeField] float increaseRate = 2f;
     [SerializeField] float maxSize;
     [SerializeField] int damage = 2;
+    [SerializeField] float waveFrequency = 7f;
 
     PlayerController playerControllerScript;
 
@@ -20,7 +21,7 @@ public class EnemyWaveScript : MonoBehaviour
     }
     void WaveExpansion()
     {
-        transform.localScale += new Vector3(1, 0, 1) * increaseRate * Time.deltaTime;
+        transform.localScale += new Vector3(1, 0.4f * Mathf.Sin(waveFrequency * Time.time), 1) * increaseRate * Time.deltaTime;
 
         if (transform.localScale.z >= maxSize)
         {
