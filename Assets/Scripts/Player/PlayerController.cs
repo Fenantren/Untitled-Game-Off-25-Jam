@@ -29,10 +29,26 @@ public class PlayerController : MonoBehaviour
     private bool isDashing;
     private bool canDash = true;
 
-
+    [Header ("Wave bits")]
+    
     [SerializeField] GameObject slamWavePrefab;
     [SerializeField] Transform slamWaveTransform;
 
+    
+
+    [Header("VFX and SFX")]
+
+    [SerializeField] AudioSource playerAudioSource;
+    [SerializeField] AudioSource moveAudioSource;
+    [SerializeField] AudioClip moveClip;
+    [SerializeField] AudioClip dashClip;
+    
+    [SerializeField] AudioClip jumpClip;
+    [SerializeField] AudioClip slamClip;
+
+
+
+    
     [SerializeField] bool canSlam = false;
     public bool isGrounded;
 
@@ -50,6 +66,7 @@ public class PlayerController : MonoBehaviour
         boxCollider = GetComponent<BoxCollider>();
         trailRenderer = GetComponent<TrailRenderer>();
         
+        
     }
     void Update()
     {
@@ -57,7 +74,7 @@ public class PlayerController : MonoBehaviour
         IsGrounded();
         FallGravity();
         
-        
+
 
     }
 
@@ -84,19 +101,23 @@ public class PlayerController : MonoBehaviour
     void MovePlayer()
     {
 
-        
-        if (input != Vector3.zero)
-        {
+
+
+
+            rb.linearVelocity = new Vector3(input.ToIso().x * moveSpeed, rb.linearVelocity.y, input.ToIso().z * moveSpeed);
+
             
-            rb.linearVelocity = new Vector3 (input.ToIso().x * moveSpeed, rb.linearVelocity.y, input.ToIso().z * moveSpeed);
-            
+
+           
+
             if (isDashing)
             {
                 Debug.Log("dashing while moving");
-                rb.linearVelocity += dashDirection * dashVelocity ;
+                rb.linearVelocity += dashDirection * dashVelocity;
                 return;
             }
-        }
+        
+        
     }
 
     public void Dash(InputAction.CallbackContext context)
@@ -106,6 +127,8 @@ public class PlayerController : MonoBehaviour
             isDashing = true;
             canDash = false;
             trailRenderer.emitting = true;
+            playerAudioSource.PlayOneShot(dashClip);
+
             dashDirection = transform.forward * input.magnitude;
             
             if(dashDirection == Vector3.zero)
@@ -126,7 +149,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.linearVelocity = Vector3.up * jumpForce * jumpAcceleration;
             canSlam = true;
-
+            playerAudioSource.PlayOneShot(jumpClip);
             
         }
         //Slam down if in the air
@@ -195,6 +218,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitUntil(() => isGrounded == true);
 
         Instantiate(slamWavePrefab, slamWaveTransform.position, Quaternion.identity);
+        playerAudioSource.PlayOneShot(slamClip);
         Debug.Log("wave!");
 
         

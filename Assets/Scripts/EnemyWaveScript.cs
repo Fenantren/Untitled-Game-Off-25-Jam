@@ -8,6 +8,13 @@ public class EnemyWaveScript : MonoBehaviour
     [SerializeField] int damage = 2;
     [SerializeField] float waveFrequency = 7f;
 
+
+    [Header("SFX and VFX ")]
+    [SerializeField] AudioSource damageSFXSource;
+    [SerializeField] AudioClip damageSFXClip;
+    [SerializeField] GameObject damageVFX;
+    
+    
     PlayerController playerControllerScript;
 
     private void Awake()
@@ -29,30 +36,26 @@ public class EnemyWaveScript : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
+    
+
+    public void OnTriggerEnter(Collider other)
     {
-        Debug.Log(collision.gameObject.name);
-        PlayerHealth playerHealth = collision.collider.GetComponentInParent<PlayerHealth>();
+        PlayerHealth player = other.GetComponent<Collider>().GetComponentInParent<PlayerHealth>();
+        Collider colliderHit = other.GetComponentInParent<Collider>();
 
-        
-        
-            
-            playerHealth?.TakeDamage(damage);
+        player?.TakeDamage(damage);
+        damageSFXSource.PlayOneShot(damageSFXClip);
+        Instantiate(damageVFX, colliderHit.transform.position, Quaternion.identity);
 
-       
-        
+        StartCoroutine(DelayedDestroyWaveRoutine());
+    }
 
-            Debug.Log("Player took damage");
-        //Play SFX and VFX
+    IEnumerator DelayedDestroyWaveRoutine()
+    {
+        yield return new WaitForSeconds(0.5f);
 
         Destroy(this.gameObject);
     }
-    
-    IEnumerator InsideCollisionRoutine()
-    {
-        yield return new WaitForSeconds(2f);
 
-    }
 
-    
 }
