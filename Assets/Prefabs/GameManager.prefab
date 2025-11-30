@@ -45,5 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesLeftText: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  transition: {fileID: 0}
   youWinText: {fileID: 0}
   nextLevelPortal: {fileID: 0}
+  transitionTime: 2

@@ -3196,7 +3196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   increaseRate: 2
   maxSize: 5
-  damage: 2
+  damage: 1
   waveFrequency: 7
   damageSFXSource: {fileID: 2182324722693689209}
   damageSFXClip: {fileID: 8300000, guid: 7b6ef5b1aaae446a7b047581ac37aee8, type: 3}

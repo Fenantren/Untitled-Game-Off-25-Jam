@@ -29,6 +29,8 @@ public class JumperEnemy : MonoBehaviour
 
     IEnumerator SpawnWaveRoutine()
     {
+        
+
         while (player)
         {
             Instantiate(enemyWavePrefab, waveSpawnPos.position, waveSpawnPos.rotation);

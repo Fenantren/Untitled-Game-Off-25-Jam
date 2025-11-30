@@ -12,11 +12,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text enemiesLeftText;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] Animator transition;
+
     
+
     [SerializeField] GameObject youWinText;
     [SerializeField] GameObject nextLevelPortal;
 
     [SerializeField] float transitionTime = 1f;
+    
     
     
     PlayerHealth player;
@@ -28,6 +31,8 @@ public class GameManager : MonoBehaviour
     {
         player = FindFirstObjectByType<PlayerHealth>();
         playerAnimator = player.GetComponent<Animator>();
+       
+        
     }
     const string ENEMIES_LEFT_STRING = "Enemies Left : ";
     public void AdjustEnemiesLeft(int amount)
@@ -42,6 +47,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    
     public void LoadNextLevel()
     {
         StartCoroutine(LoadNextLevelRoutine());
@@ -71,6 +77,8 @@ public class GameManager : MonoBehaviour
 
     }
 
+
+    
     public void PauseScreen()
     {
         pauseMenu.SetActive(false);

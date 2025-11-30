@@ -1,18 +1,21 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] float healthPoints = 30f;
+    [SerializeField] float healthPoints = 5f;
     [SerializeField] float currentHP;
     public bool wasHit;
 
+    [SerializeField] Image[] healthBars;
     [SerializeField] float hitDelay = 0.5f;
 
     private void Awake()
     {
         currentHP = healthPoints;
         wasHit = false;
+        AdjustHealthUI();
     }
 
 
@@ -21,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHP -= damage;
         wasHit = true;
+        AdjustHealthUI();
 
         StartCoroutine(HitableRoutine(hitDelay));
         if (currentHP <= 0)
@@ -28,9 +32,29 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("Player defeated");
         }
     }
+    
+    
     IEnumerator HitableRoutine(float timeDelay)
     {
         yield return new WaitForSeconds(timeDelay);
         wasHit = false;
     }
+
+    void AdjustHealthUI()
+    {
+        for (int i = 0; i < healthBars.Length; i++)
+        {
+            if (i < currentHP)
+            {
+                healthBars[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                healthBars[i].gameObject.SetActive(false);
+
+            }
+
+        }
+    }
+
 }

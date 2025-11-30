@@ -10992,7 +10992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   increaseRate: 3
   maxSize: 40
-  damage: 2
+  damage: 1
   damageSFXSource: {fileID: 1027038782874206518}
   damageSFXClip: {fileID: 8300000, guid: 6755bdc920f494522898217783f24875, type: 3}
   damageVFX: {fileID: 4212237911574779972, guid: a1034b81672d9d94eb979a7ffa570b0e, type: 3}

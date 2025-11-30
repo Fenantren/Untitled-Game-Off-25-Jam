@@ -36,11 +36,15 @@ public class Ring : MonoBehaviour
     {
         PlayerHealth player = collision.collider.GetComponentInParent<PlayerHealth>();
 
-        player?.TakeDamage(damage);
+        if (player.wasHit == false)
+        {
+            player?.TakeDamage(damage);
         
         
-        damageSFXSource.PlayOneShot(damageSFXClip);
-        Instantiate(damageVFX, collision.collider.transform.position, Quaternion.identity);
+            damageSFXSource.PlayOneShot(damageSFXClip);
+            Instantiate(damageVFX, collision.collider.transform.position, Quaternion.identity);
+            
+        }
         
 
     }

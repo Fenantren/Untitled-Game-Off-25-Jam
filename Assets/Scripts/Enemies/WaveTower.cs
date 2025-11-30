@@ -22,6 +22,8 @@ public class WaveTower : MonoBehaviour
 
     IEnumerator SpawnWaveRoutine()
     {
+        
+
         while(player)
         {
             Instantiate(wavePrefab, waveSpawnPos.position, transform.rotation);

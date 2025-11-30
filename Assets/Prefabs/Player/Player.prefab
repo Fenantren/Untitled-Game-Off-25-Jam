@@ -260,6 +260,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 519cb5e2-782c-4514-9210-80c2f508becc
     m_ActionName: 'Player/Jump[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 76f16bba-8302-4222-a233-5780f43a7648
+    m_ActionName: 'Player/Pause Menu[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -312,9 +328,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 723730c188be5f246820f61b207daad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 30
+  healthPoints: 7
   currentHP: 0
   wasHit: 0
+  healthBars:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   hitDelay: 0.5
 --- !u!96 &9019493946188783284
 TrailRenderer:
