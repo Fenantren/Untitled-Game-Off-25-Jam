@@ -42,11 +42,14 @@ public class EnemyWaveScript : MonoBehaviour
     {
         PlayerHealth player = other.GetComponent<Collider>().GetComponentInParent<PlayerHealth>();
         Collider colliderHit = other.GetComponentInParent<Collider>();
+        if(player.wasHit == false)
+        {
 
-        player?.TakeDamage(damage);
-        damageSFXSource.PlayOneShot(damageSFXClip);
-        Instantiate(damageVFX, colliderHit.transform.position, Quaternion.identity);
+            player?.TakeDamage(damage);
+            damageSFXSource.PlayOneShot(damageSFXClip);
+            Instantiate(damageVFX, colliderHit.transform.position, Quaternion.identity);
 
+        }
         StartCoroutine(DelayedDestroyWaveRoutine());
     }
 

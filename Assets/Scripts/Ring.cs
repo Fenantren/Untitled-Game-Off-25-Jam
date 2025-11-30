@@ -3,9 +3,17 @@ using UnityEngine;
 public class Ring : MonoBehaviour
 {
     Transform ringTransform;
+    [Header ("Ring Variables")]
     [SerializeField] float increaseRate = 5f;
     [SerializeField] float maxSize;
-    [SerializeField] float pushForce = 20f;
+    
+
+    [SerializeField] int damage = 2;
+    
+    [Header("SFX and VFX ")]
+    [SerializeField] AudioSource damageSFXSource;
+    [SerializeField] AudioClip damageSFXClip;
+    [SerializeField] GameObject damageVFX;
     private void Awake()
     {
         ringTransform = GetComponent<Transform>();   
@@ -24,10 +32,28 @@ public class Ring : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter(Collision collision)
     {
-       other.rigidbody.AddForce((other.transform.position - ringTransform.position) * pushForce, ForceMode.Impulse);
-       //Add SFX and VFX
-       
+        PlayerHealth player = collision.collider.GetComponentInParent<PlayerHealth>();
+
+        player?.TakeDamage(damage);
+        
+        
+        damageSFXSource.PlayOneShot(damageSFXClip);
+        Instantiate(damageVFX, collision.collider.transform.position, Quaternion.identity);
+        
+
     }
+    /*public void OnTriggerEnter(Collider other)
+    {
+        Collider colliderHit = other.GetComponentInParent<Collider>();
+
+        player?.TakeDamage(damage);
+
+        //other.attachedRigidbody.AddForceAtPosition((this.GetComponent<MeshCollider>().bounds.extents - colliderHit.transform.position) * pushForce, colliderHit.transform.position, ForceMode.Impulse);
+        damageSFXSource.PlayOneShot(damageSFXClip);
+        Instantiate(damageVFX, colliderHit.transform.position, Quaternion.identity);
+
+        //StartCoroutine(DelayedDestroyWaveRoutine());
+    }*/
 }

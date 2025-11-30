@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] float currentHP;
     public bool wasHit;
     [SerializeField] float hitDelay =  0.7f;
+    [SerializeField] GameObject destroyVFX;
     private void Awake()
     {
         currentHP = healthPoints;
@@ -23,6 +24,7 @@ public class EnemyHealth : MonoBehaviour
         StartCoroutine(HitableRoutine(hitDelay));
         if( currentHP <= 0)
         {
+            Instantiate(destroyVFX, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
