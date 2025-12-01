@@ -19,7 +19,7 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
-        if (instance == this && SceneManager.GetActiveScene().buildIndex == 0)
+        if (instance == this &&( SceneManager.GetActiveScene().buildIndex == 0 || SceneManager.GetActiveScene().buildIndex == 7))
         {
             Destroy(gameObject);
         }
