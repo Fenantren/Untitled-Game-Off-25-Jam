@@ -4,18 +4,28 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [Header ("Health Variables")]
     [SerializeField] float healthPoints = 5f;
     [SerializeField] float currentHP;
-    public bool wasHit;
-
     [SerializeField] Image[] healthBars;
+    
+    [Header ("Damage Control")]
+    public bool wasHit;
     [SerializeField] float hitDelay = 0.5f;
+
+    [SerializeField] GameObject deathVFX;
+    [SerializeField] GameObject gameOverUI;
+    GameManager gameManager;
+    PlayerController playerController;
+
 
     private void Awake()
     {
         currentHP = healthPoints;
         wasHit = false;
         AdjustHealthUI();
+        gameManager = FindFirstObjectByType<GameManager>();
+        playerController = GetComponent<PlayerController>();
     }
 
 
@@ -29,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
         StartCoroutine(HitableRoutine(hitDelay));
         if (currentHP <= 0)
         {
-            Debug.Log("Player defeated");
+            StartCoroutine(DeathRoutine());
         }
     }
     
@@ -55,6 +65,16 @@ public class PlayerHealth : MonoBehaviour
             }
 
         }
+    }
+
+    IEnumerator DeathRoutine()
+    {
+        playerController.enabled = false;
+        Instantiate(deathVFX, this.transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(3f);
+        gameOverUI.SetActive(true);
+        Destroy(this.gameObject);
+
     }
 
 }

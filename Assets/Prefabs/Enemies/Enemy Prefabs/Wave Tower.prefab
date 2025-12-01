@@ -427,7 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04d9322dce80a8d498daf868102e94e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 10
+  healthPoints: 20
   currentHP: 0
   wasHit: 0
   hitDelay: 0.7

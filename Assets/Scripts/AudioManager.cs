@@ -1,16 +1,25 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
     private void Awake()
     {
-        if (instance == null)
+        if (instance == null && SceneManager.GetActiveScene().buildIndex != 0)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
+        else 
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        if (instance == this && SceneManager.GetActiveScene().buildIndex == 0)
         {
             Destroy(gameObject);
         }

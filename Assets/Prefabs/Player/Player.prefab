@@ -276,6 +276,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 76f16bba-8302-4222-a233-5780f43a7648
     m_ActionName: 'Player/Pause Menu[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ddefc929-20a3-4842-8d89-d2ae9e24684f
+    m_ActionName: 'Player/Tutorial[/Keyboard/enter]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -328,19 +332,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 723730c188be5f246820f61b207daad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 7
+  healthPoints: 5
   currentHP: 0
-  wasHit: 0
   healthBars:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  wasHit: 0
   hitDelay: 0.5
+  deathVFX: {fileID: 874244544889619525, guid: 0728f683564eb00408dbd34352577569, type: 3}
+  gameOverUI: {fileID: 0}
 --- !u!96 &9019493946188783284
 TrailRenderer:
   serializedVersion: 3
@@ -464,7 +467,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759264646118871024}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 9dc0eea1b1c1783429b7a461fd1da611, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

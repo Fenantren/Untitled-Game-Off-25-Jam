@@ -12,11 +12,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial.unity
     guid: af99dbb843a4fc84784c33d776a13cf6
   - enabled: 1
-    path: Assets/Scenes/TestScene.unity
+    path: Assets/Scenes/Wave 1.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/TestScene 1.unity
-    guid: 483a9c6f2ef60164d86fafac79474b88
+    path: Assets/Scenes/Wave 2.unity
+    guid: 65d4e8e4b2ba2f74886b961733f03777
+  - enabled: 1
+    path: Assets/Scenes/Wave 3.unity
+    guid: e2bc5fcbba1b8d64cbbab18420e6c624
+  - enabled: 1
+    path: Assets/Scenes/Wave 4.unity
+    guid: b6e7aee7d3e088340a02640f96fe4176
+  - enabled: 1
+    path: Assets/Scenes/Wave 5.unity
+    guid: b462ae21c87beaf419bc76d941125827
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c40ccbfd327faac45ad3987ea4e988e4, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

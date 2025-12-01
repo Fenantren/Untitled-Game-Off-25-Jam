@@ -62,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 5844572025470276927}
   serializedVersion: 2
   m_LocalRotation: {x: 0.033351775, y: -0.42765665, z: 0.39336216, w: 0.8131812}
-  m_LocalPosition: {x: 16.52345, y: 3.650291, z: -14.044973}
+  m_LocalPosition: {x: 19.554108, y: 2.3210838, z: -18.34995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -77,7 +77,7 @@ Camera:
   m_GameObject: {fileID: 5844572025470276927}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.66206837, g: 0.72011095, b: 0.8113208, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -216,7 +216,6 @@ GameObject:
   - component: {fileID: 3304276108560590071}
   - component: {fileID: 5056161724986360039}
   - component: {fileID: 3224051356564213532}
-  - component: {fileID: 1970270534291513129}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -233,7 +232,7 @@ Transform:
   m_GameObject: {fileID: 6298507095170919334}
   serializedVersion: 2
   m_LocalRotation: {x: 0.033351764, y: -0.42765662, z: 0.39336216, w: 0.8131812}
-  m_LocalPosition: {x: 16.52345, y: 3.650291, z: -14.044973}
+  m_LocalPosition: {x: 19.554108, y: 2.3210838, z: -18.34995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -344,24 +343,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BoundingVolume: {fileID: 0}
   SlowingDistance: 0
---- !u!114 &1970270534291513129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6298507095170919334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eb4843bae7d24943842ea23130dcd55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FramingMode: 2
-  FramingSize: 0.8
-  CenterOffset: {x: 0, y: 0}
-  Damping: 2
-  SizeAdjustment: 2
-  LateralAdjustment: 0
-  FovRange: {x: 1, y: 100}
-  DollyRange: {x: -100, y: 100}
-  OrthoSizeRange: {x: 1, y: 1000}

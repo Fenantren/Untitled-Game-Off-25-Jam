@@ -77,7 +77,11 @@ public class GameManager : MonoBehaviour
 
     }
 
-
+    public void RestartLevel()
+    {
+        StartCoroutine(TransitionRoutine());
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
     
     public void PauseScreen()
     {
@@ -87,14 +91,21 @@ public class GameManager : MonoBehaviour
 
     public void BackToMainMenu()
     {
-        //transition screen
-        SceneManager.LoadScene(0);
         Time.timeScale = 1f;
+
+        StartCoroutine (TransitionRoutine());   
+        
+        SceneManager.LoadScene(0);
+    }
+    IEnumerator TransitionRoutine()
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(transitionTime);
     }
 
     public void Pause(InputAction.CallbackContext context)
     {
-        if ( context.performed)
+        if ( context.performed && player)
         {
             if (pauseMenu.activeInHierarchy == false)
             {
